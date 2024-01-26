@@ -1,6 +1,6 @@
 FROM ubuntu:noble
 
-ADD . /app
+COPY --link . /app
 WORKDIR /app
 RUN chmod +x ./sharks
 

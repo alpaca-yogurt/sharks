@@ -45,3 +45,10 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:0.0-${{ github.sha }},ghcr.io/${{ github.repository }}:latest
+      - name: Clean up
+        uses: actions/delete-package-versions@v4
+        with: 
+          package-name: sharks # is there really no way to just get the name of the repo?
+          package-type: 'container'
+          min-versions-to-keep: 2
+          delete-only-untagged-versions: 'false'
